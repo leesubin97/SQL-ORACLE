@@ -17,7 +17,7 @@ Trigger: 함수의 한종류
             delete      0   
             update      0   0
 */
-
+```
 SET SERVEROUTPUT ON
 
 CREATE OR REPLACE TRIGGER trigger_test
@@ -40,7 +40,7 @@ CREATE OR REPLACE TRIGGER trigger_test
         
         ROLLBACK;-- 이전으로 되돌린다
         
-        
+ ```       
         
 -- ROW 를 추가하는데 항상 평균 급여를 확인
 CREATE OR REPLACE TRIGGER avg_trigger
@@ -48,7 +48,7 @@ CREATE OR REPLACE TRIGGER avg_trigger
         INSERT OR UPDATE ON employees
         FOR EACH ROW
         
-        
+    ```  
     DECLARE
         avg_sal NUMBER;
     BEGIN
@@ -63,9 +63,11 @@ CREATE OR REPLACE TRIGGER avg_trigger
     
     INSERT INTO employees(employee_id, last_name, hire_date, department_id, job_id,salary, email)
     VALUES(300,'Tiger',SYSDATE, 60,'IT_PROG',20000,'Tiger@naver.com');
-    
+    ```
         
     -- 수정되지 않도록 하는경우
+
+```
 CREATE OR REPLACE TRIGGER emp_tigger
     BEFORE
         UPDATE OR DELETE OR INSERT ON employees
@@ -86,3 +88,4 @@ CREATE OR REPLACE TRIGGER emp_tigger
         UPDATE employees
         SET salary = 2500
         WHERE employee_id = 100;
+```
